@@ -1,31 +1,34 @@
 package com.example.EvaluacionJonnathanValdez3.controller;
 
 import com.example.EvaluacionJonnathanValdez3.entities.Post;
-import com.example.EvaluacionJonnathanValdez3.repository.PostRepository;
-import com.example.EvaluacionJonnathanValdez3.service.ExternalService;
+import com.example.EvaluacionJonnathanValdez3.service.PostService;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v1/posts")
 @RequiredArgsConstructor
 public class PostController {
-    private final ExternalService externalService;
+    private final PostService postService;
+    @GetMapping("/search")
+    public ResponseEntity<List<Post>> searchPosts(
+            @RequestParam(name = "id", required = false) @Positive(message = "El ID tiene que ser postivo") Long id,
+            @RequestParam(name = "title", required = false) String title) {
 
-    @GetMapping("/import")
-    public ResponseEntity<String> importData() {
-        try {
-            externalService.getPostsFromExternalService();
-            return ResponseEntity.ok("Datos importados correctamente.");
-        }catch (Exception e){
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ha ocurrido un error al importar datos.");
+        List<Post> posts = postService.searchPosts(id, title);
+
+        if (!posts.isEmpty()) {
+            return ResponseEntity.ok(posts);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }
