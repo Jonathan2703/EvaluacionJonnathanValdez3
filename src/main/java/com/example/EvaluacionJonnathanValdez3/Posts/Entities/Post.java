@@ -1,4 +1,4 @@
-package com.example.EvaluacionJonnathanValdez3.entities;
+package com.example.EvaluacionJonnathanValdez3.Posts.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
-package com.example.EvaluacionJonnathanValdez3.service;
+package com.example.EvaluacionJonnathanValdez3.Posts.Services;
 
-import com.example.EvaluacionJonnathanValdez3.entities.Post;
-import com.example.EvaluacionJonnathanValdez3.repository.PostRepository;
+import com.example.EvaluacionJonnathanValdez3.Posts.Entities.Post;
+import com.example.EvaluacionJonnathanValdez3.Posts.Repositories.PostRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -15,6 +15,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -40,7 +41,7 @@ public class ExternalService {
             postRepository.saveAll(posts);
             logger.info("Los post han sido creados desde el otro microservicio");
         }catch (RestClientException e){
-            e.printStackTrace(); // Puedes personalizar esto para registrar errores de la manera que prefieras.
+            e.printStackTrace();
         }
     }
 }

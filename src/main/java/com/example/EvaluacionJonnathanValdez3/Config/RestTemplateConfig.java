@@ -1,4 +1,4 @@
-package com.example.EvaluacionJonnathanValdez3.config;
+package com.example.EvaluacionJonnathanValdez3.Config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

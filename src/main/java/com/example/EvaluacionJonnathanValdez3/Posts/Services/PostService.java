@@ -1,7 +1,7 @@
-package com.example.EvaluacionJonnathanValdez3.service;
+package com.example.EvaluacionJonnathanValdez3.Posts.Services;
 
-import com.example.EvaluacionJonnathanValdez3.entities.Post;
-import com.example.EvaluacionJonnathanValdez3.repository.PostRepository;
+import com.example.EvaluacionJonnathanValdez3.Posts.Entities.Post;
+import com.example.EvaluacionJonnathanValdez3.Posts.Repositories.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.example.EvaluacionJonnathanValdez3.repository;
+package com.example.EvaluacionJonnathanValdez3.Posts.Repositories;
 
-import com.example.EvaluacionJonnathanValdez3.entities.Post;
+import com.example.EvaluacionJonnathanValdez3.Posts.Entities.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
