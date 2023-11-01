@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "58fcfbc6-45d7-4287-81a1-a70775937ef4",
+		"name": "RetoBanco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11349550"
+	},
+	"item": [
+		{
+			"name": "Login ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"iva@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"iva@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"lastName\": \"valdez\",\r\n    \"firstName\": \"jona\",\r\n    \"country\": \"Ecuador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by id and/or title",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFAZ21haWwuY29tIiwiaWF0IjoxNjk4ODUzNzA2LCJleHAiOjE2OTg4NTUxNDZ9.5vz_UXb-r-Pb0GNEwbXOaCpuwD_IXmC1EzU95Ih0lSM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/posts/search?id=12&title=iusto eius quod necessitatibus culpa ea",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"search"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12"
+						},
+						{
+							"key": "title",
+							"value": "iusto eius quod necessitatibus culpa ea"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
